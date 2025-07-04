@@ -60,7 +60,7 @@ i made it all using xcode then copied it across to vs code
 ## Live Version
 
 You can try it here:  
-**https://MrAshleyOsborne.github.io/fitness-tracker/**  
+**https://MrAshleyOsborne.github.io/fitness-tracker2/**  
 __
 
 ---
