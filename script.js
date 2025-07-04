@@ -53,13 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
     addSection.style.display = "none";
   });
 
-  // 🟢 Tab switching logic
-  addTab.addEventListener("click", () => {
-    addSection.style.display = "block";
-    logSection.style.display = "none";
-  });
+ // 🟢 Tab switching logic
+addTab.addEventListener("click", () => {
+  addSection.style.display = "block";
+  logSection.style.display = "none";
+});
 
-  viewTab.addEventListener("click", () => {
-    addSection.style.display = "none";
-    logSection.style.display = "block";
-    render
+viewTab.addEventListener("click", () => {
+  addSection.style.display = "none";
+  logSection.style.display = "block";
+  renderLog(); // ✅ This line was missing
+});
