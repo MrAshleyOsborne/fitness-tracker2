@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .forEach((workout, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <strong>${workout.date}:</strong> ${workout.activity} - 
+          <strong>${workout.date}:</strong> ${workout.activity} – 
           ${workout.duration} mins, ${workout.calories} cal
           <button onclick="deleteWorkout(${index})">Delete</button>
         `;
@@ -52,14 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const newWorkout = {
-      activity,
-      duration,
-      calories,
-      date,
-    };
-
-    workouts.push(newWorkout);
+    workouts.push({ activity, duration, calories, date });
     saveWorkouts();
     form.reset();
     renderLog();
@@ -67,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     addSection.style.display = "none";
   });
 
-  // Tab switching
   addTab.addEventListener("click", () => {
     addSection.style.display = "block";
     logSection.style.display = "none";
@@ -79,4 +71,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderLog();
   });
 
-  //
+  renderLog();
+});
