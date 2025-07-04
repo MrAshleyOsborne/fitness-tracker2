@@ -14,12 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderLog() {
     logList.innerHTML = "";
+
+    if (workouts.length === 0) {
+      logList.innerHTML = "<li>No workouts yet.</li>";
+      return;
+    }
+
     workouts
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .forEach((workout, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <strong>${workout.date}:</strong> ${workout.activity} - ${workout.duration} mins, ${workout.calories} cal
+          <strong>${workout.date}:</strong> ${workout.activity} - 
+          ${workout.duration} mins, ${workout.calories} cal
           <button onclick="deleteWorkout(${index})">Delete</button>
         `;
         logList.appendChild(li);
@@ -40,12 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const calories = parseInt(document.getElementById("calories").value);
     const date = document.getElementById("date").value;
 
-    if (!activity || duration <= 0 || calories <= 0 || !date) {
-      alert("Please fill out all fields correctly.");
+    if (!activity || isNaN(duration) || isNaN(calories) || !date) {
+      alert("Please fill in all fields correctly.");
       return;
     }
 
-    workouts.push({ activity, duration, calories, date });
+    const newWorkout = {
+      activity,
+      duration,
+      calories,
+      date,
+    };
+
+    workouts.push(newWorkout);
     saveWorkouts();
     form.reset();
     renderLog();
@@ -53,14 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
     addSection.style.display = "none";
   });
 
- // 🟢 Tab switching logic
-addTab.addEventListener("click", () => {
-  addSection.style.display = "block";
-  logSection.style.display = "none";
-});
+  // Tab switching
+  addTab.addEventListener("click", () => {
+    addSection.style.display = "block";
+    logSection.style.display = "none";
+  });
 
-viewTab.addEventListener("click", () => {
-  addSection.style.display = "none";
-  logSection.style.display = "block";
-  renderLog(); // ✅ This line was missing
-});
+  viewTab.addEventListener("click", () => {
+    addSection.style.display = "none";
+    logSection.style.display = "block";
+    renderLog();
+  });
+
+  //
