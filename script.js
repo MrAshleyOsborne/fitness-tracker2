@@ -26,14 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  window.deleteWorkout = function(index) {
+  window.deleteWorkout = function (index) {
     workouts.splice(index, 1);
     saveWorkouts();
     renderLog();
-  }
+  };
 
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+
     const activity = document.getElementById("activity").value.trim();
     const duration = parseInt(document.getElementById("duration").value);
     const calories = parseInt(document.getElementById("calories").value);
@@ -47,9 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     workouts.push({ activity, duration, calories, date });
     saveWorkouts();
     form.reset();
-    alert("Workout added!");
+    renderLog();
+    logSection.style.display = "block";
+    addSection.style.display = "none";
   });
 
+  // 🟢 Tab switching logic
   addTab.addEventListener("click", () => {
     addSection.style.display = "block";
     logSection.style.display = "none";
@@ -58,9 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
   viewTab.addEventListener("click", () => {
     addSection.style.display = "none";
     logSection.style.display = "block";
-    renderLog();
-  });
-
-  // Default view
-  renderLog();
-});
+    render
