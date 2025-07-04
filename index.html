@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fitness Tracker</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Fitness Tracker</h1>
+      <nav>
+        <button id="add-tab">Add Workout</button>
+        <button id="view-tab">View Log</button>
+      </nav>
+    </header>
 
-<body>
-  <header>
-    <h1>Fitness Tracker</h1>
-    <nav>
-      <button id="add-tab">Add Workout</button>
-      <button id="view-tab">View Log</button>
-    </nav>
-  </header>
+    <main>
+      <section id="add-workout-section">
+        <h2>Add Strength Workout</h2>
+        <form id="workout-form">
+          <label for="activity">Activity Name:</label>
+          <input type="text" id="activity" required />
 
-  <main>
-    <section id="add-workout-section">
-      <h2>Add Strength Workout</h2>
-      <form id="workout-form">
-        <label for="activity">Activity Name:</label>
-        <input type="text" id="activity" required />
+          <label for="duration">Duration (mins):</label>
+          <input type="number" id="duration" required min="1" />
 
-        <label for="duration">Duration (mins):</label>
-        <input type="number" id="duration" required min="1" />
+          <label for="calories">Calories Burned:</label>
+          <input type="number" id="calories" required min="1" />
 
-        <label for="calories">Calories Burned:</label>
-        <input type="number" id="calories" required min="1" />
+          <label for="date">Date:</label>
+          <input type="date" id="date" required />
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" required />
+          <button type="submit">Add Workout</button>
+        </form>
+      </section>
 
-        <button type="submit">Add Workout</button>
-      </form>
-    </section>
+      <section id="log-section" style="display: none;">
+        <h2>Workout Log</h2>
+        <ul id="workout-log"></ul>
+      </section>
+    </main>
 
-    <section id="log-section" style="display:none;">
-      <h2>Workout Log</h2>
-      <ul id="workout-log"></ul>
-    </section>
-  </main>
-
-<link rel="stylesheet" href="css/style.css">
-<script src="js/script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
