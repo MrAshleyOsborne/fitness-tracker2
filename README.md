@@ -85,6 +85,8 @@ The design is simple on purpose — I focused on making it easy to use.
 
 Below is the wireframe I created to help design the layout:
 
-![Wireframe of app layout](images/fitness-image.png.)
+<p align="center">
+  <img src="fitness-image.png" alt="Fitness Tracker Preview" width="400"/>
+</p>
 
 
